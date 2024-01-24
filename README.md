@@ -1,38 +1,19 @@
-# STARTER-team01
+# w24-4pm-2-team01
 
 Lab instructions: <https://ucsb-cs156.github.io/w24/lab/team01.html>
 
-* TODO: Update the following table, then delete this line that says "TODO".
+| Name         | GitHub Id                                           |  Service                    | Controller                |
+|--------------|-----------------------------------------------------|-----------------------------|---------------------------|
+| Bharat Kathi | [bk1031](https://github.com/bk1031)                 | `JokeQueryService`      | `JokeController`      |
+| Alex Lim     | [alexlim-pro](https://github.com/alexlim-pro)       | `LocationQueryService`      | `LocationController`      |
+| Angelina Suy | [ahjsuy](https://github.com/ahjsuy)                 | `PublicHolidayQueryService` | `PublicHolidayController` |
+| Ritu Kirsur  | [rkirsur](https://github.com/bk1031)                | `TidesQueryService`         | `TidesController`         |
+| Kyle Kumar   | [kylebkumar](https://github.com/kylebkumar)         | `UniversityQueryService`    | `UniversityController`    |
+| Rohan Kumar  | [rohankumar2025](https://github.com/rohankumar2025) | `ZipCodeQueryService`       | `ZipCodeController`       |
 
-```
-|   Name    | GitHub Id |  Service                    | Controller                |
-|-----------|-----------|-----------------------------|---------------------------|
-|           |           | `LocationQueryService`      | `LocationController`      |
-|           |           | `PublicHolidayQueryService` | `PublicHolidayController` |
-|           |           | `TidesQueryService`         | `TidesController`         |
-|           |           | `UniversityQueryService`    | `UniversityController`    |
-|           |           | `ZipCodeQueryService`       | `ZipCodeController`       |
-```
+Repo: https://github.com/ucsb-cs156-w24/team01-w24-4pm-2
 
-
-* TODO: Change the title of this README
-  in the text `# STARTER-team01` above
-  to match the name of your repo, i. e., `w24-5pm-2-team01`, then delete
-  this TODO item.
-
-* TODO: Correct the links to repo below,
-  then delete this TODO.  Replace it with
-  a link to your repo, e.g.
-  https://github.com/ucsb-cs156-w24/w24-5pm-2-team01
-
-Repo: https://ucsb-cs156-w24/STARTER-team01
-
-* TODO: Correct the links to app on Dokku below,
-  then delete this TODO.  Replace it with
-  a link to your running app on Dokku, e.g.
-  https://team01.dokku-00.cs.ucsb.edu
-
-On Heroku: https://team01.dokku-00.cs.ucsb.edu
+On Heroku: https://team01.dokku-02.cs.ucsb.edu
 
 ## About this repo
 
