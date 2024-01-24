@@ -2,9 +2,9 @@
 
 Lab instructions: <https://ucsb-cs156.github.io/w24/lab/team01.html>
 
-| Name         | GitHub Id                                           |  Service                    | Controller                |
+| Name         | GitHub Id                                           | Service                     | Controller                |
 |--------------|-----------------------------------------------------|-----------------------------|---------------------------|
-| Bharat Kathi | [bk1031](https://github.com/bk1031)                 | `JokeQueryService`      | `JokeController`      |
+| Bharat Kathi | [bk1031](https://github.com/bk1031)                 | `JokeQueryService`          | `JokeController`          |
 | Alex Lim     | [alexlim-pro](https://github.com/alexlim-pro)       | `LocationQueryService`      | `LocationController`      |
 | Angelina Suy | [ahjsuy](https://github.com/ahjsuy)                 | `PublicHolidayQueryService` | `PublicHolidayController` |
 | Ritu Kirsur  | [rkirsur](https://github.com/bk1031)                | `TidesQueryService`         | `TidesController`         |
