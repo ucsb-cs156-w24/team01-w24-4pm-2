@@ -10,7 +10,6 @@ import com.opencsv.bean.CsvToBeanBuilder;
 
 import org.springframework.web.client.RestTemplate;
 
-import edu.ucsb.cs156.spring.backenddemo.beans.CollegeSubreddit;
 import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.boot.web.client.RestTemplateBuilder;
@@ -44,9 +43,8 @@ public class LocationQueryService {
         HttpEntity<String> entity = new HttpEntity<>(headers);
 
         ResponseEntity<String> re = restTemplate.exchange(ENDPOINT, HttpMethod.GET, entity, String.class);
-        String csvData =  re.getBody();
-        List<CollegeSubreddit> subreddits = new CsvToBeanBuilder<CollegeSubreddit>(new StringReader(csvData)).withType(CollegeSubreddit.class).build().parse();
-        String jsonData = mapper.writeValueAsString(subreddits);
+        String location = re.getBody();
+        String jsonData = mapper.writeValueAsString(location);
         return jsonData;
     }
 }
