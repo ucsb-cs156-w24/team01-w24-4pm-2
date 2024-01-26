@@ -53,7 +53,7 @@ public class HomeControllerTests {
         team.add("Angelina S.");
         team.add("Bharat K.");
         team.add("Kyle K..");
-        team.add("Ritu K.")
+        team.add("Ritu K.");
         team.add("Rohan K");
         resultMap.put("team", team);
         resultMap.put("repo", "https://github.com/ucsb-cs156-w24/team01-w24-4pm-2");
