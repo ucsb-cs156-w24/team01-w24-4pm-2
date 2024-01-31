@@ -11,6 +11,7 @@ import edu.ucsb.cs156.spring.backenddemo.services.LocationQueryService;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
+import static org.mockito.ArgumentMatchers.eq;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
@@ -25,19 +26,14 @@ public class LocationControllerTests {
 
   @Test
   public void test_getLocation() throws Exception {
-  
     String fakeJsonResult="{ \"fake\" : \"result\" }";
-    when(mockLocationQueryService.getJSON()).thenReturn(fakeJsonResult);
-
-    String url = String.format("/api/location/get");
-
+    String location = "Seoul";
+    when(mockLocationQueryService.getJSON(eq(location))).thenReturn(fakeJsonResult);
+    String url = String.format("/api/location/get?location=%s", location);
     MvcResult response = mockMvc
         .perform( get(url).contentType("application/json"))
         .andExpect(status().isOk()).andReturn();
-
     String responseString = response.getResponse().getContentAsString();
-
     assertEquals(fakeJsonResult, responseString);
   }
-
 }

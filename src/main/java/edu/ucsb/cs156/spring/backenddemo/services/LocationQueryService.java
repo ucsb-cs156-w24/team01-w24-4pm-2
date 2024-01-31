@@ -1,6 +1,7 @@
 package edu.ucsb.cs156.spring.backenddemo.services;
 
 import java.util.List;
+import java.util.Map;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -30,28 +31,17 @@ public class LocationQueryService {
 
     public static final String ENDPOINT = "https://nominatim.openstreetmap.org/search/q={location}&format=jsonv2";
 
-    public String getJSON() throws HttpClientErrorException, JsonProcessingException {
-        HttpHeaders headers = new HttpHeaders();
-        headers.setAccept(List.of(MediaType.TEXT_PLAIN));
-        headers.setContentType(MediaType.APPLICATION_JSON);
-
-        HttpEntity<String> entity = new HttpEntity<>(headers);
-
-        ResponseEntity<String> re = restTemplate.exchange(ENDPOINT, HttpMethod.GET, entity, String.class);
-        String location = re.getBody();
-        String jsonData = mapper.writeValueAsString(location);
-        return jsonData;
-    }
-
     public String getJSON(String location) throws HttpClientErrorException, JsonProcessingException {
         HttpHeaders headers = new HttpHeaders();
-        headers.setAccept(List.of(MediaType.TEXT_PLAIN));
+        headers.setAccept(List.of(MediaType.APPLICATION_JSON));
         headers.setContentType(MediaType.APPLICATION_JSON);
+
+        Map<String, String> uriVariables = Map.of("location", location);
 
         HttpEntity<String> entity = new HttpEntity<>(headers);
 
-        ResponseEntity<String> re = restTemplate.exchange(ENDPOINT, HttpMethod.GET, entity, String.class, location);
-        String jsonData = mapper.writeValueAsString(re.getBody());
-        return jsonData;
+        ResponseEntity<String> re = restTemplate.exchange(ENDPOINT, HttpMethod.GET, entity, String.class,
+                uriVariables);
+        return re.getBody();
     }
 }
