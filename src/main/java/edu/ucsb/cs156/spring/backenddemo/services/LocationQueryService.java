@@ -47,4 +47,5 @@ public class LocationQueryService {
         String jsonData = mapper.writeValueAsString(location);
         return jsonData;
     }
+    
 }
