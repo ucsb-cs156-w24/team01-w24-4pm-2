@@ -36,7 +36,7 @@ public class PublicHolidaysController {
         @Parameter(name="year", description="The current year we are in", example="2012") @RequestParam String year
     ) throws JsonProcessingException {
         log.info("getCountryCodes: countryCode={} year={}", countryCode, year);
-        String result = publicHolidaysQueryService.getJSON(countryCode, year);
+        String result = publicHolidaysQueryService.getJSON(year, countryCode);
         return ResponseEntity.ok().body(result);
     }
 
