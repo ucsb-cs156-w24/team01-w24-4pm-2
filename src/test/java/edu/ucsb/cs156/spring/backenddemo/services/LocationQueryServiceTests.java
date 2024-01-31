@@ -19,6 +19,10 @@ import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import io.swagger.v3.core.util.Json;
+import com.fasterxml.jackson.databind.JsonNode;
 
 @RestClientTest(LocationQueryService.class)
 public class LocationQueryServiceTests {
@@ -37,11 +41,15 @@ public class LocationQueryServiceTests {
         String fakeJsonString = "{ \"fake\": \"result\" }";
 
         this.mockRestServiceServer.expect(requestTo(expectedURL))
-                .andExpect(header("Accept", "text/plain"))
+                .andExpect(header("Accept", MediaType.APPLICATION_JSON.toString()))
                 .andExpect(header("Content-Type", MediaType.APPLICATION_JSON.toString()))
-                .andRespond(withSuccess(fakeJsonString, MediaType.TEXT_PLAIN));
+                .andRespond(withSuccess(fakeJsonString, MediaType.APPLICATION_JSON));
 
         String actualResult = locationQueryService.getJSON(location);
-        assertEquals(fakeJsonString, actualResult);
+        Json.mapper().writeValueAsString(fakeJsonString);
+        ObjectMapper objectMapper = new ObjectMapper();
+        JsonNode expectedJsonNode = objectMapper.readTree(fakeJsonString);
+        JsonNode actualJsonNode = objectMapper.readTree(actualResult);
+        assertEquals(expectedJsonNode, actualJsonNode);
     }
 }
