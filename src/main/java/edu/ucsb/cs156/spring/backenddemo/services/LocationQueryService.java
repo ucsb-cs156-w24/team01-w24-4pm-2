@@ -33,7 +33,7 @@ public class LocationQueryService {
         restTemplate = restTemplateBuilder.build();
     }
 
-    public static final String ENDPOINT = "https://nominatim.openstreetmap.org/search/{location}?format=json";
+    public static final String ENDPOINT = "";
 
     public String getJSON() throws HttpClientErrorException, JsonProcessingException {
         HttpHeaders headers = new HttpHeaders();
@@ -46,5 +46,6 @@ public class LocationQueryService {
         String location = re.getBody();
         String jsonData = mapper.writeValueAsString(location);
         return jsonData;
+    }
     }
 }
