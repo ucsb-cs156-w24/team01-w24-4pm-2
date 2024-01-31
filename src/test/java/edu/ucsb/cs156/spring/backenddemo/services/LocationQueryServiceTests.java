@@ -34,7 +34,7 @@ public class LocationQueryServiceTests {
         String location = "Seoul";
         String expectedURL = LocationQueryService.ENDPOINT.replace("{location}", location);
 
-        String fakeJsonString = "{ \"fake\": \"data\" }";
+        String fakeJsonString = "{ \"fake\": \"result\" }";
 
         this.mockRestServiceServer.expect(requestTo(expectedURL))
                 .andExpect(header("Accept", "text/plain"))
@@ -44,5 +44,4 @@ public class LocationQueryServiceTests {
         String actualResult = locationQueryService.getJSON();
         assertEquals(fakeJsonString, actualResult);
     }
-
 }
