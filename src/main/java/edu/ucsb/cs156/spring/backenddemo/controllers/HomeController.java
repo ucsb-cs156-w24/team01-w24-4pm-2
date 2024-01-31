@@ -43,12 +43,14 @@ public class HomeController {
         resultMap.put("greeting", "Greetings from Spring Boot!");
 
         List<String> team = new ArrayList<String>();
-        team.add("Jing P.");
-        team.add("Christian S.");
-        team.add("Guy W.");
-        team.add("Phill C.");
+        team.add("Alex L.");
+        team.add("Angelina S.");
+        team.add("Bharat K.");
+        team.add("Kyle K..");
+        team.add("Ritu K.");
+        team.add("Rohan K");
         resultMap.put("team", team);
-        resultMap.put("repo", "https://github.com/ucsb-cs156-w24/STARTER-team01");
+        resultMap.put("repo", "https://github.com/ucsb-cs156-w24/team01-w24-4pm-2");
         resultMap.put("api-documentation", baseUrl + "swagger-ui/index.html");
         return mapper.writeValueAsString(resultMap);
     }
