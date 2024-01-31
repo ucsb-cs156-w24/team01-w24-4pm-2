@@ -32,8 +32,8 @@ public class PublicHolidaysController {
     @Operation(summary="Get public holidays for a given year and country", description ="JSON return format documented here: https://date.nager.at/Api")
     @GetMapping("/get")
     public ResponseEntity<String> getCountryCodes(
-        @Parameter(name="countryCode", description="2 letter country code", example="US, MX, CN") @RequestParam String countryCode,
-        @Parameter(name="year", description="The current year we are in", example="2012") @RequestParam String year
+        @Parameter(name="countryCode", description="2 letter country code", example="US") @RequestParam String countryCode,
+        @Parameter(name="year", description="The current year we are in", example="2024") @RequestParam String year
     ) throws JsonProcessingException {
         log.info("getCountryCodes: countryCode={} year={}", countryCode, year);
         String result = publicHolidaysQueryService.getJSON(year, countryCode);
