@@ -1,9 +1,12 @@
 package edu.ucsb.cs156.spring.backenddemo.services;
 
+import java.io.StringReader;
 import java.util.List;
-import java.util.Map;
 
+
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.opencsv.bean.CsvToBeanBuilder;
 
 import org.springframework.web.client.RestTemplate;
 
@@ -19,9 +22,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;
 
 
-@Slf4j
 @Service
 public class LocationQueryService {
+
+    private ObjectMapper mapper = new ObjectMapper();
 
     private final RestTemplate restTemplate;
 
@@ -31,15 +35,16 @@ public class LocationQueryService {
 
     public static final String ENDPOINT = "https://nominatim.openstreetmap.org/search/{location}?format=json";
 
-    public String getJSON(String location) throws HttpClientErrorException {
-        log.info("location={}", location);
+    public String getJSON() throws HttpClientErrorException, JsonProcessingException {
         HttpHeaders headers = new HttpHeaders();
-        headers.setAccept(List.of(MediaType.APPLICATION_JSON));
+        headers.setAccept(List.of(MediaType.TEXT_PLAIN));
         headers.setContentType(MediaType.APPLICATION_JSON);
+
         HttpEntity<String> entity = new HttpEntity<>(headers);
-        Map<String, String> uriVariables = Map.of("location", location);
-        ResponseEntity<String> re = restTemplate.exchange(ENDPOINT, HttpMethod.GET, entity, String.class,
-                uriVariables);
-        return re.getBody();
+
+        ResponseEntity<String> re = restTemplate.exchange(ENDPOINT, HttpMethod.GET, entity, String.class);
+        String location = re.getBody();
+        String jsonData = mapper.writeValueAsString(location);
+        return jsonData;
     }
 }
