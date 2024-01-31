@@ -41,7 +41,7 @@ public class LocationQueryServiceTests {
                 .andExpect(header("Content-Type", MediaType.APPLICATION_JSON.toString()))
                 .andRespond(withSuccess(fakeJsonString, MediaType.TEXT_PLAIN));
 
-        String actualResult = locationQueryService.getJSON();
+        String actualResult = locationQueryService.getJSON(location);
         assertEquals(fakeJsonString, actualResult);
     }
 }
