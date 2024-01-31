@@ -31,7 +31,7 @@ public class LocationQueryServiceTests {
 
     @Test
     public void test_getLocations() throws URISyntaxException, UnsupportedEncodingException, JsonProcessingException {
-        String location = "University of California - Santa Barbara";
+        String location = "Seoul";
         String expectedURL = LocationQueryService.ENDPOINT.replace("{location}", URLEncoder.encode(location, StandardCharsets.UTF_8.toString()));
 
         String fakeJsonString = "{ \"fake\": \"data\" }";
