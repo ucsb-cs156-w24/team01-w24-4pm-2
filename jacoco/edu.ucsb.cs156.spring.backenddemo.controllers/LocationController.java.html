@@ -3,6 +3,7 @@
 import edu.ucsb.cs156.spring.backenddemo.services.LocationQueryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,11 +19,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import lombok.extern.slf4j.Slf4j;
 
-<span class="fc" id="L21">@Slf4j</span>
+@Tag(name=&quot;Location Info from openstreetmap&quot;)
+<span class="fc" id="L23">@Slf4j</span>
 @RestController
 @RequestMapping(&quot;/api/location&quot;)
-<span class="fc" id="L24">public class LocationController {</span>
-<span class="fc" id="L25">    ObjectMapper objectMapper = new ObjectMapper();</span>
+<span class="fc" id="L26">public class LocationController {</span>
+<span class="fc" id="L27">    ObjectMapper objectMapper = new ObjectMapper();</span>
 
     @Autowired
     LocationQueryService locationQueryService;
@@ -32,8 +34,8 @@ import lombok.extern.slf4j.Slf4j;
     public ResponseEntity&lt;String&gt; getLocation(
             @Parameter(name=&quot;location&quot;, example=&quot;Seoul&quot;) @RequestParam String location
         ) throws HttpClientErrorException, JsonProcessingException {
-<span class="fc" id="L35">        String result = locationQueryService.getJSON(location);</span>
-<span class="fc" id="L36">        return ResponseEntity.ok().body(result);</span>
+<span class="fc" id="L37">        String result = locationQueryService.getJSON(location);</span>
+<span class="fc" id="L38">        return ResponseEntity.ok().body(result);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
