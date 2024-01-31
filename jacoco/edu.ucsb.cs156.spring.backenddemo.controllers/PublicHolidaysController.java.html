@@ -32,8 +32,8 @@ import io.swagger.v3.oas.annotations.tags.Tag;
     @Operation(summary=&quot;Get public holidays for a given year and country&quot;, description =&quot;JSON return format documented here: https://date.nager.at/Api&quot;)
     @GetMapping(&quot;/get&quot;)
     public ResponseEntity&lt;String&gt; getCountryCodes(
-        @Parameter(name=&quot;countryCode&quot;, description=&quot;2 letter country code&quot;, example=&quot;US, MX, CN&quot;) @RequestParam String countryCode,
-        @Parameter(name=&quot;year&quot;, description=&quot;The current year we are in&quot;, example=&quot;2012&quot;) @RequestParam String year
+        @Parameter(name=&quot;countryCode&quot;, description=&quot;2 letter country code&quot;, example=&quot;US&quot;) @RequestParam String countryCode,
+        @Parameter(name=&quot;year&quot;, description=&quot;The current year we are in&quot;, example=&quot;2024&quot;) @RequestParam String year
     ) throws JsonProcessingException {
 <span class="fc" id="L38">        log.info(&quot;getCountryCodes: countryCode={} year={}&quot;, countryCode, year);</span>
 <span class="fc" id="L39">        String result = publicHolidaysQueryService.getJSON(year, countryCode);</span>
